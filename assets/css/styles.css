@@ -1,7 +1,10 @@
 * { box-sizing: border-box; }
+html { overflow-x: hidden; }
 body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -346,6 +349,31 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
+}
+
+/* Prevent marquee from causing horizontal scroll */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Ensure hero section never overflows */
+.hero-grid-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1023px) {
+    .marquee-container { width: 100vw; margin-left: calc(-50vw + 50%); }
 }
 
 .section-divider {
