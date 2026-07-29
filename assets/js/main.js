@@ -117,6 +117,52 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
+// Dynamic Fullscreen Image Lightbox
+function openLightbox(imgSrc, title) {
+    let modal = document.getElementById('lightbox-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'lightbox-modal';
+        modal.className = 'fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none';
+        modal.innerHTML = `
+            <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+                <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white/80 hover:text-white text-2xl h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/40">
+                    <img id="lightbox-img" src="" alt="Full View" class="max-h-[80vh] w-auto max-w-full object-contain block mx-auto">
+                </div>
+                <p id="lightbox-caption" class="text-white font-bold text-sm sm:text-base mt-4 text-center px-4 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm"></p>
+            </div>
+        `;
+        modal.onclick = closeLightbox;
+        document.body.appendChild(modal);
+    }
+    
+    const img = document.getElementById('lightbox-img');
+    const cap = document.getElementById('lightbox-caption');
+    if (img) img.src = imgSrc;
+    if (cap) cap.textContent = title || 'Visual Evidence';
+    
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) {
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+});
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobile-menu');

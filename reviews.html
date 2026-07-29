@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -395,9 +395,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
                 
                 <!-- Feedback 1: Parent feedback on game -->
-                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition-all group">
+                <div onclick="openLightbox('assets/img/feedback_parent_game.png', 'Parent Feedback — Kids Interactive Game')" class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition-all group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl bg-slate-900 mb-4 border border-slate-100 max-h-[480px] flex items-center justify-center">
                         <img src="assets/img/feedback_parent_game.png" alt="Feedback from parent whose kids enjoyed the game" class="w-full h-auto object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <span class="bg-slate-900/80 text-white font-bold text-[10px] uppercase px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> Click to View Full Image</span>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
                         <div class="h-9 w-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
@@ -411,9 +414,12 @@
                 </div>
 
                 <!-- Feedback 2: General student feedback -->
-                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition-all group">
+                <div onclick="openLightbox('assets/img/feedback_general.png', 'Student Coaching Review Screenshot')" class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition-all group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl bg-slate-900 mb-4 border border-slate-100 max-h-[480px] flex items-center justify-center">
                         <img src="assets/img/feedback_general.png" alt="General student feedback" class="w-full h-auto object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <span class="bg-slate-900/80 text-white font-bold text-[10px] uppercase px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> Click to View Full Image</span>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
                         <div class="h-9 w-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
